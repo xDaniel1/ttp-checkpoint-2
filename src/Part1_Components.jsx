@@ -3,7 +3,7 @@
 //
 // How to verify your work:
 //   Run "npm run dev" in your terminal from the ttp-checkpoint-2 folder.
-//   Make sure the dev server in the terminal is running. 
+//   Make sure the dev server in the terminal is running.
 //   Open http://localhost:5173 in your browser.
 //   Every time you save this file, the browser updates automatically.
 //   Look at the page — that is how you know your code is working.
@@ -13,7 +13,6 @@
 //   - Each task tells you exactly what to build and where to put it
 //   - For EXPLAIN tasks, write your answer as a comment below the prompt
 // ============================================================
-
 
 // ------------------------------------------------------------
 // SECTION A — JSX Basics
@@ -29,7 +28,8 @@ function SectionA() {
   // A1.
   // Declare a variable called myName and assign it your first name as a string.
   // Declare a variable called myCity and assign it the city you are from.
-
+  let myName = "Daniel";
+  let myCity = "New York City";
 
   // A2.
   // Inside the return below, add a <p> tag that displays your name.
@@ -40,7 +40,6 @@ function SectionA() {
   //      If you don't embed the value correctly,
   //      React treats the text literally and prints the
   //      variable name instead of its value.
-
 
   // A3.
   // Using your myName variable, display your name in all uppercase inside a <p> tag.
@@ -56,17 +55,21 @@ function SectionA() {
   // EXPLAIN: What is JSX? How is it different from plain HTML?
   //          Why do you need curly braces to embed a variable's value?
   //
-  //          answer:
-
+  //          answer: JSX is like a wrapper for HTML. It looks like HTML but lives in JavaScript. React needs curly braces to know that its JavaScript.
+  //          Without the curly braces Reacts will treat it like it's text and will print the variable name instead of its value.
   return (
     <div>
       <h2>Section A — JSX Basics</h2>
-      {/* Your output goes below this line */}
+      <p>
+        My name is {myName} and I live in {myCity}.
+      </p>
+      <p>The length of my name is {myName.length}.</p>
+      <p>{25 + 17} is the result of 25 + 17.</p>
 
+      <p>{myName.toUpperCase()}</p>
     </div>
-  )
+  );
 }
-
 
 // ------------------------------------------------------------
 // SECTION B — Writing Your Own Components - you don't need to export anything
@@ -86,14 +89,31 @@ function SectionA() {
 //     (href="#" is fine — we are not building real links yet)
 //
 // Write PageHeader here:
-
+function PageHeader() {
+  return (
+    <header>
+      <h1>My react app</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+  );
+}
 
 // B2.
 // Create a component called PageFooter.
 // It should return a <footer> element with a <p> that says "2026 TTP".
 //
 // Write PageFooter here:
-
+function PageFooter() {
+  return (
+    <footer>
+      <p>2026 TTP</p>
+    </footer>
+  );
+}
 
 function SectionB() {
   // B3.
@@ -104,18 +124,19 @@ function SectionB() {
   //          Why do we split UI into separate components instead of
   //          writing everything inside one big function?
   //
-  //          answer:
-
+  // answer: A React component is a JavaScript function that returns JSX.
+  //         We split UI into components to keep code organized and reusable —
+  //         instead of copying the same code everywhere, you just write <PageHeader />.
 
   return (
     <div>
       <h2>Section B — Your Own Components</h2>
       {/* Render your components below */}
-
+      <PageHeader />
+      <PageFooter />
     </div>
-  )
+  );
 }
-
 
 // ------------------------------------------------------------
 // Do not edit below this line.
@@ -131,7 +152,7 @@ function Part1() {
       <hr />
       <SectionB />
     </section>
-  )
+  );
 }
 
-export default Part1
+export default Part1;
